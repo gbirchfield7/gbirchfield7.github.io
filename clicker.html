@@ -1,45 +1,117 @@
 <!DOCTYPE html>
 <html>
+<title>clickes</title>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>clicker</title>
   <style>
-    background{
-      background-color: gradient;
-    }
-img{
-    border-style: solid; 
-    border-width: 7px;
-}
-h1{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+    body {
 
+      background-color: red;
+    }
+
+    img {
+      border-style: solid;
+      border-width: 7px;
+    }
+
+    h1 {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    h2 {
+      position: relative;
+
+    }
+    stored {
+      border-style: solid;
+    }
   </style>
 </head>
+
 <body>
-<img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl6Oaj0_1PwHBz-dBCP09L2nn1b5HVIGsl4w&s">
-
-
-<p>score<button id="hellOnEarth">hell on earth</button></p>
-<p>score<button id="graceOfGod">grace of god</button></p>
-<h1 id="score">score= 0</h1>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl6Oaj0_1PwHBz-dBCP09L2nn1b5HVIGsl4w&s">
+  <p><button id="graceOfGod">grace of god</button></p>
+  <p><button id="hellOnEarth">hell on earth</button></p>
+  <h1 id="score">score= 0</h1>
+  <h1 id="stored">store:</h1>
+  <h1><button id="upgrader">heavanly power(cost=5, increase power to 5)</button></h1>
+  <h1><button id="upgrader2">godly power(cost=100, increase power to 20)</button></h1>
+  <h1><button id="evilupgrader">evil power</button></h1>
+  <h1><button id="evilupgrader2">evil-er power</button></h1>
 </body>
+
 </html>
 <script>
-  var score=0
-  document.getElementById("graceOfGod").addEventListener("click",down)
-  document.getElementById("hellOnEarth").addEventListener("click",up)
-function up(){
-score= score + 1; document.getElementById("score").innerHTML= score
+  var score = 0
+  var upgraded = 1
+  var evilupgraded = -1
 
-console.log(score)
 
+  function down() {
+    score = score + evilupgraded; document.getElementById("score").innerHTML = score
+    console.log(score)
+    if (score <= 0) {
+      document.body.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvSl7Rf055p4mEWZWShDSQIRUkwt4Y9Mob6pslFDt9cFajguE:https://media.tenor.com/ooHuQMr34McAAAAM/skeleton.gif&s')"
+    } else {
+      document.body.style.backgroundImage = "url(https://i1.sndcdn.com/artworks-000396380448-53eovp-t500x500.jpg)"
+    }
+  }
+  function up() {
+    score = score + upgraded;
+    document.getElementById("score").innerHTML = score
+
+    console.log(score)
+    if (score <= 0) {
+      document.body.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvSl7Rf055p4mEWZWShDSQIRUkwt4Y9Mob6pslFDt9cFajguE:https://media.tenor.com/ooHuQMr34McAAAAM/skeleton.gif&s')"
+
+    } else {
+      document.body.style.backgroundImage = "url(https://i1.sndcdn.com/artworks-000396380448-53eovp-t500x500.jpg)"
+
+    }
+
+  }
+  function upgrade() {//purchasable upgrade that increases your score per click from 1 to 5//
+    if (score >= 5) {
+      upgraded = 5;
+      score = score - 5
+      document.getElementById("upgrader").style.background = "red"
+    }
+
+    document.getElementById("score").innerHTML = score
+  }
+  function upgrade2() {
+    if (score >= 100) {
+      score = score - 100
+      upgraded = 20;
+
+      document.getElementById("upgrader2").style.background = "red"
+      document.getElementById("score").innerHTML = score
+    }
+  }
+  function evilupgrade(){
+    if(score <= -5){
+    score = score +5
+  evilupgraded = -5;
+  document.getElementById("evilupgrader").style.background = "red"
+  document.getElementById("score").innerHTML = score
+  }
 }
-function down(){
-  score= score - 1; document.getElementById("score").innerHTML= score
-
-  console.log(score)
+  function evilupgrade2(){
+    if(score <= -100){
+    score = score +100
+  evilupgraded = -100;
+  document.getElementById("evilupgrader2").style.background = "red"
+  document.getElementById("score").innerHTML = score
+  }
 }
+  document.getElementById("graceOfGod").addEventListener("click", up)
+  document.getElementById("hellOnEarth").addEventListener("click", down)
+  document.getElementById("upgrader").addEventListener("click", upgrade)
+  document.getElementById("upgrader2").addEventListener("click", upgrade2)
+  document.getElementById("evilupgrader").addEventListener("click", evilupgrade)
+  document.getElementById("evilupgrader2").addEventListener("click", evilupgrade2)
+
+
 </script>
