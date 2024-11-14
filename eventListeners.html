@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <title>listen</title>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -21,7 +22,7 @@
 </html>
 <script>
   var score = 0
-var red = false
+  var red = false
 
   document.getElementById("themessage").addEventListener("click", catText)
   document.getElementById("cat").addEventListener("mouseenter", hovered)
@@ -29,7 +30,7 @@ var red = false
   document.getElementById("score").addEventListener("click", unhovered)
   document.getElementById("cat").addEventListener("click", up)
   function catText() {
-    if(red===false){
+    if (red === false) {
       document.getElementById("themessage").style.color = "red";
       red = true
     } else {

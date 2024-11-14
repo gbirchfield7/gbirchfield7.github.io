@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <title>clickes</title>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -24,6 +25,7 @@
       position: relative;
 
     }
+
     stored {
       border-style: solid;
     }
@@ -90,22 +92,22 @@
       document.getElementById("score").innerHTML = score
     }
   }
-  function evilupgrade(){
-    if(score <= -5){
-    score = score +5
-  evilupgraded = -5;
-  document.getElementById("evilupgrader").style.background = "red"
-  document.getElementById("score").innerHTML = score
+  function evilupgrade() {
+    if (score <= -5) {
+      score = score + 5
+      evilupgraded = -5;
+      document.getElementById("evilupgrader").style.background = "red"
+      document.getElementById("score").innerHTML = score
+    }
   }
-}
-  function evilupgrade2(){
-    if(score <= -100){
-    score = score +100
-  evilupgraded = -100;
-  document.getElementById("evilupgrader2").style.background = "red"
-  document.getElementById("score").innerHTML = score
+  function evilupgrade2() {
+    if (score <= -100) {
+      score = score + 100
+      evilupgraded = -100;
+      document.getElementById("evilupgrader2").style.background = "red"
+      document.getElementById("score").innerHTML = score
+    }
   }
-}
   document.getElementById("graceOfGod").addEventListener("click", up)
   document.getElementById("hellOnEarth").addEventListener("click", down)
   document.getElementById("upgrader").addEventListener("click", upgrade)
