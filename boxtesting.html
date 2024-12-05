@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Bouncing Baby Boy</title>
+    <style>
+        body {
+            border-style: solid;
+            left: 1000px;
+            top: 100px;
+            width: 1520px;
+            height: 720px;
+
+
+        }
+
+        div {
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            position: absolute;
+            top: 100px;
+            left: 1000px;
+          
+        }
+
+        img {
+            filter: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9JYWKOdrBdRbEnm29nNeRlsgSYhvUdm6sebdN5cMORfkQL74:https://e7.pngegg.com/pngimages/307/201/png-clipart-dvd-logo-blu-ray-disc-dvd-video-logo-dvd-logo-icon-miscellaneous-blue.png&s");
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="divination"><img height="30px" width="30px"
+            src="data:image/png;base64,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">
+    </div>
+    <border id="bording"></border>
+</body>
+
+</html>
+<script>
+    var positionX = 1000
+    var positionY = 100
+    var directionX = -3
+    var directionY = -3
+    var scored = 0
+    document.getElementById("divination").addEventListener("click", startBoxMoving);
+
+    function startBoxMoving() {
+
+        setInterval(movebox, 16)
+    }
+    function movebox() {
+        if (positionX <= 10) {
+            directionX = 3
+        }
+        if (positionX >= 1500) {
+            directionX = -3
+        }
+        if (positionY <= 10) {
+            directionY = 3
+        }
+        if (positionY >= 700) {
+            directionY = -3
+        }
+    }
+        
+        positionX = positionX + directionX;
+        positionY = positionY + directionY;
+        document.getElementById("divination").style.left = positionX + "px";
+        document.getElementById("divination").style.top = positionY + "px";
+        
+    
+
+
+
+</script>
