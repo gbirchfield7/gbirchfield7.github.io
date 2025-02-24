@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>stary night</title>
+</head>
+<style>
+  body {
+    background-color: rgb(0, 0, 0);
+  }
+
+  p {
+    color: blueviolet;
+</style>
+
+<body>
+
+  <canvas id="canvas" width="1000" height="1000" style="border:1px solid #ffffff;">
+  </canvas>
+  <p id="colorme">hello</p>
+  <p></p>
+  <p2></p2>
+  <button id="changer">pause </button>
+  <button id="static">preset 1 </button>
+  <button id="rain">preset 2 </button>
+
+
+  <div class="slidecontainer">
+    <input type="range" min="1" max="190000" value="1000" class="slider" id="myRange">
+  </div>
+</body>
+
+</html>
+<script>
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  var rand
+  var randy = [];
+  var rand2
+  var randy2 = [];
+  var x = [];
+  var y = [];
+  var x2 = [];
+  var y2 = [];
+  var sizeX = 1
+  var sizeY = 1
+  var numOfDots = 100000
+  var slider = document.getElementById("myRange");
+  numOfDots = slider.value;
+  slider.oninput = function () {
+    numOfDots = this.value;
+  }
+
+  function pause() {
+    clearInterval(myInterval)
+  }
+  function changeNum() {
+    numOfDots = 100
+    sizeX = 1
+    sizeY = 1
+  }
+  function sizes() {
+    sizeX = 3
+    sizeY = 1
+    numOfDots = 100000
+  }
+  function sizes2() {
+    sizeY = 4
+    sizeX = 1
+    numOfDots = 100000
+  }
+  const myInterval = setInterval(stars, 100);
+
+
+  function stars() {
+    ctx.clearRect(0, 0, 10000, 10000)
+    x = []
+    y = []
+    for (let i = 0; i <= numOfDots; i++) {
+      rand = Math.floor(Math.random() * 1000);
+      x.push(rand);
+      randy = Math.floor(Math.random() * 1000);
+      y.push(randy);
+      ctx.fillStyle = "white";
+      ctx.fillRect(x[i], y[i], sizeX, sizeY)
+
+    }
+    x2 = []
+    y2 = []
+    for (let i = 0; i <= numOfDots; i++) {
+      rand2 = Math.floor(Math.random() * 1000);
+      x2.push(rand2);
+      randy2 = Math.floor(Math.random() * 1000);
+      y2.push(randy2);
+      ctx.fillStyle = "gray";
+      ctx.fillRect(x2[i], y2[i], sizeX, sizeY)
+
+    }
+  }
+
+  document.getElementById("colorme").innerHTML = slider.value
+  console.log("numOfDots")
+  document.getElementById("changer").addEventListener("click", pause);
+  document.getElementById("static").addEventListener("click", sizes);
+  document.getElementById("rain").addEventListener("click", sizes2);
+  document.getElementById("ammount").addEventListener("click", changeNum);
+
+
+
+
+
+</script>

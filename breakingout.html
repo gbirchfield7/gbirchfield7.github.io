@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>bouncing baby boy canva</title>
+</head>
+<style>
+  .canvas {
+    top: 200px;
+  }
+</style>
+
+<body>
+  <canvas id="canvas" width="1520" height="550" style="border:1px solid #000000;">
+  </canvas>
+  <p id=clock>here</p>
+  <p id="bound">number of mounced</p>
+  </p2>
+  </p3>
+
+</body>
+
+</html>
+<script>
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  var x = [];
+  var y = [];
+  var directionX = 3
+  var directionY = 5
+  var times = 0
+  var bouncer = 0
+  var mitos
+  setInterval(mover, 100)
+
+
+
+  function mover() {
+
+    if (x >= 1000) {
+      directionX = -10
+      directionX =
+        Math.floor(Math.random() * -20);
+      document.getElementById("bound").innerHTML = bouncer;
+      for (let i = 0; i <= 5; i = i + 1) {
+      x.push();
+      y.push();
+    }
+    if (x <= 400) {
+      directionX = +10
+      directionX =
+        Math.floor(Math.random() * 20);
+   
+      document.getElementById("bound").innerHTML = bouncer;
+      for (let i = 0; i <= 5; i = i + 1) {
+      x.push();
+      y.push();
+
+    }
+  }
+    if (y <= 0) {
+      directionY = 10
+      directionY =
+        Math.floor(Math.random() * 20);
+     
+      document.getElementById("bound").innerHTML = bouncer;
+      for (let i = 0; i <= 5; i = i + 1) {
+      x.push();
+      y.push();
+      
+
+
+    }
+  }
+    if (y >= 500) {
+      directionY = -10
+      directionY =
+        Math.floor(Math.random() * -20);
+     
+      document.getElementById("bound").innerHTML = bouncer;
+      for (let i = 0; i <= 5; i = i + 1) {
+      x.push();
+      y.pushy);
+
+
+
+    }
+  }
+    x = x + directionX;
+    y = y + directionY;
+    ctx.clearRect(0, 0, 1540, 700)
+    ctx.fillRect(x[i], y[i], 10, 10)
+
+
+
+
+
+  }
+
+  function timer() {
+    times = times + 1;
+    document.getElementById("clock").innerHTML = times;
+
+  }
+
+ 
+  
+}
+
+
+  </script>

@@ -53,11 +53,7 @@ $(function () {
     // You must decide on the collectable type, the x position, the y position, the gravity, and the bounce strength
     // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
     // example usage: createCollectable(type, x, y, gravity, bounce)
-    createCollectable("https://upload.wikimedia.org/wikipedia/commons/b/bd/Test.svg", 630, 100)
-    createCollectable("https://upload.wikimedia.org/wikipedia/commons/b/bd/Test.svg", 230, 900)
-    createCollectable("https://upload.wikimedia.org/wikipedia/commons/b/bd/Test.svg", 990, 100)
-    createCollectable("https://upload.wikimedia.org/wikipedia/commons/b/bd/Test.svg", 130, 100)
-    createCollectable("https://upload.wikimedia.org/wikipedia/commons/b/bd/Test.svg", 700, 600)
+    createCollectable("diamond",200,300,1,3)
 
 
     

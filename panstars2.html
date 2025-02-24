@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>shifting sands</title>
+</head>
+<style>
+  body {
+    background-color: rgb(0, 0, 0);
+  }
+
+  p {
+    color: blueviolet;
+</style>
+
+<body>
+
+  <canvas id="canvas" width="1000" height="1000" style="border:1px solid #ffffff;">
+  </canvas>
+
+  <p></p>
+
+  <button id="changer">pause</button>
+  <button id="starter">start</button>
+  <button id="test">unclear</button>
+  <button id="test2">start</button>
+
+
+  <div class="pixel size x">
+    <input type="range" min="1" max="5" value="1" class="pixelX" id="myRanged">
+  </div>
+hello
+  <div class="pixel size y">
+    <input type="range" min="1" max="5" value="1" class="pixelY" id="myRanger">
+  </div>
+
+  <div class="slidecontainer">
+    <input type="range" min="1" max="25000" value="1000" class="slider" id="myRange">
+  </div>
+
+  <div class="slidecontainer2">
+    <input type="range" min="1" max="25000" value="1000" class="slider2" id="myRange2">
+  </div>
+
+  <form action="/action_page.php">
+    <input type="color" id="favcolor" name="favcolor" value="#FFFFFF">
+  </form>
+
+  <form action="/action_page.php">
+    <input type="color" id="favcolor2" name="favcolor2" value="#808080">
+  </form>
+</body>
+
+</html>
+<script>
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  var rand
+  var randy = [];
+  var rand2
+  var randy2 = [];
+  var x = [];
+  var y = [];
+  var x2 = [];
+  var y2 = [];
+  var sizeX = 1;
+  var sizeY = 1;
+  var numOfDots;
+  var numOfDots2;
+  var clearX = 10000000
+  var clearY = 10000000
+  var random
+  var random2
+  var coolor = favcolor.value;
+  favcolor.oninput = function () {
+    coolor = this.value;
+  }
+  var coolor2 = favcolor2.value;
+  favcolor2.oninput = function () {
+    coolor2 = this.value;
+  }
+  
+  var slider = document.getElementById("myRange");
+  numOfDots = slider.value;
+  slider.oninput = function () {
+    numOfDots = this.value;
+  }
+  var slider2 = document.getElementById("myRange2");
+  numOfDots2 = slider2.value;
+  slider2.oninput = function () {
+    numOfDots2 = this.value;
+  }
+  var slider3 = document.getElementById("myRanged");
+  sizeX = slider3.value;
+  slider3.oninput = function () {
+    sizeX = this.value;
+  }
+  var slider4 = document.getElementById("myRanger");
+  sizeY = slider4.value;
+  slider4.oninput = function () {
+    sizeY = this.value;
+  }
+  setInterval(cool, 100)
+  setInterval(cool2, 100)
+
+  function cool() {
+    random = Math.floor(Math.random() * 10);
+  
+
+
+  }
+  
+  function cool2() {
+    random2 = Math.floor(Math.random() * 10);
+
+  }
+  function pause() {
+    clearInterval(myInterval);
+  }
+  function start() {
+    const myIntervals = setInterval(stars, 10)
+  }
+
+  const myInterval = setInterval(stars, 10);
+  function resize() {
+    clearX = 0;
+
+  }
+  function reclear() {
+    clearx = 100000
+  }
+
+  function stars() {
+    ctx.clearRect(0, 0, clearX, clearY)
+    x = []
+    y = []
+    for (let i = 0; i <= numOfDots; i++) {
+      rand = Math.floor(Math.random() * 1000);
+      x.push(rand);
+      randy = Math.floor(Math.random() * 1000);
+      y.push(randy);
+      ctx.fillStyle = "white";
+      ctx.fillRect(x[i], y[i], random, random)
+
+    }
+    x2 = []
+    y2 = []
+    for (let i = 0; i <= numOfDots2; i++) {
+      rand2 = Math.floor(Math.random() * 1000);
+      x2.push(rand2);
+      randy2 = Math.floor(Math.random() * 1000);
+      y2.push(randy2);
+      ctx.fillStyle = "white";
+      ctx.fillRect(x2[i], y2[i], random2, random2)
+
+    }
+  }
+
+  console.log("numOfDots")
+  document.getElementById("changer").addEventListener("click", pause);
+  document.getElementById("starter").addEventListener("click", start);
+  document.getElementById("test").addEventListener("click", resize);
+  document.getElementById("test2").addEventListener("click", reclear);
+
+
+
+
+
+
+
+</script>

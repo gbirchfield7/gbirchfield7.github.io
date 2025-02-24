@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>bouncing baby boy canv</title>
+</head>
+<style>
+  .canvas {
+    top: 200px;
+  }
+</style>
+
+<body>
+  <canvas id="canvas" width="1520" height="550" style="border:1px solid #000000;">
+  </canvas>
+  <p id=clock>here</p>
+  <p id="bound">number of mounced</p>
+  <p2>x<p2 id="x"></p2>
+  </p2>
+  <p3>y <p3 id="y"></p3>
+  </p3>
+
+</body>
+
+</html>
+<script>
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  var x = [];
+  var y = [];
+  var directionX =
+  var directionY
+  var times = 0
+  var bouncer = 0
+  var rand
+  setInterval(timer, 1000);
+  setInterval(mover, 10)
+
+
+    function mover() {
+
+      if (x >= 1000) {
+        directionX = -16
+        directionX = Math.floor(Math.random() * -20);
+        bouncer = bouncer + 1;
+        document.getElementById("bound").innerHTML = bouncer;
+
+      }
+      if (x <= 400) {
+        directionX = +18
+        directionX = Math.floor(Math.random() * 20);
+        bouncer = bouncer + 1;
+        document.getElementById("bound").innerHTML = bouncer;
+
+
+      }
+
+      if (y <= 0) {
+        directionY = 12
+        directionY = Math.floor(Math.random() * 20);
+        bouncer = bouncer + 1;
+        document.getElementById("bound").innerHTML = bouncer;
+
+
+
+
+
+      }
+
+    }
+  if (y[1] >= 500) {
+    directionY = -15
+    directionY = Math.floor(Math.random() * -20);
+    bouncer = bouncer + 1;
+    document.getElementById("bound").innerHTML = bouncer;
+
+
+
+  }
+
+  x = x + directionX;
+  y[i] = y + directionY;
+
+
+  ctx.clearRect(0, 0, 1540, 700)
+  ctx.fillRect(x, y, 10, 10)
+
+
+  function timer() {
+    times = times + 1;
+    document.getElementById("clock").innerHTML = times;
+
+  }
+
+
+
+
+</script>
