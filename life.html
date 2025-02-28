@@ -1,114 +1,658 @@
 <!DOCTYPE html>
+
+
+
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>stary night</title>
+
+  <meta charset="utf-8" />
+
+
+
+  <meta name="viewport" content="width=device-width" />
+
+
+
+  <title>shifting sands</title>
+
 </head>
+
+
+
 <style>
   body {
+
+
+
     background-color: rgb(0, 0, 0);
+
+
+
   }
 
+
+
+
   p {
+
+
+
     color: blueviolet;
 </style>
 
+
+
 <body>
 
-  <canvas id="canvas" width="1000" height="1000" style="border:1px solid #ffffff;">
+  <canvas id="canvas" width="1000" height="1000" style="border: 1px solid #ffffff">
+
   </canvas>
-  <p id="colorme">hello</p>
+
+
+
   <p></p>
-  <p2></p2>
-  <button id="changer">pause </button>
-  <button id="static">preset 1 </button>
-  <button id="rain">preset 2 </button>
+
+
+
+  <button id="changer">pause</button>
+
+
+
+  <button id="starter">start</button>
+
+
+
+  <button id="test">unclear</button>
+
+
+
+  <button id="test2">start</button>
+
+
+
+  <div class="pixel size x">
+
+    <input type="range" min="1" max="5" value="1" class="pixelX" id="myRanged" />
+
+  </div>
+
+
+
+  hello
+
+
+
+  <div class="pixel size y">
+
+    <input type="range" min="1" max="5" value="1" class="pixelY" id="myRanger" />
+
+  </div>
+
 
 
   <div class="slidecontainer">
-    <input type="range" min="1" max="190000" value="1000" class="slider" id="myRange">
+
+    <input type="range" min="1" max="25000" value="1000" class="slider" id="myRange" />
+
   </div>
+
+
+
+  <div class="slidecontainer2">
+
+    <input type="range" min="1" max="25000" value="1000" class="slider2" id="myRange2" />
+
+  </div>
+
+
+
+  <form action="/action_page.php">
+
+    <input type="color" id="favcolor" name="favcolor" value="#FFFFFF" />
+
+  </form>
+
+
+
+  <form action="/action_page.php">
+
+    <input type="color" id="favcolor2" name="favcolor2" value="#808080" />
+
+  </form>
+
 </body>
 
 </html>
+
+
+
 <script>
+
   var canvas = document.getElementById("canvas");
+
+
+
   var ctx = canvas.getContext("2d");
-  var rand
+
+
+
+  var rand;
+
+
+
   var randy = [];
-  var rand2
+
+
+
+  var rand2;
+
+
+
   var randy2 = [];
+
+
+
   var x = [];
+
+
+
   var y = [];
+
+
+
   var x2 = [];
+
+
+
   var y2 = [];
-  var sizeX = 1
-  var sizeY = 1
-  var numOfDots = 100000
+
+
+
+  var sizeX = 1;
+
+
+
+  var sizeY = 1;
+
+
+
+  var numOfDots;
+
+
+
+  var numOfDots2;
+
+
+
+  var clearX = 10000000;
+
+
+
+  var clearY = 10000000;
+
+
+
+  var random;
+
+
+
+  var random2;
+
+
+
+  var count = 0;
+
+
+
+  var coolor = favcolor.value;
+
+
+
+  var createOnlyOnceToggle = true;
+
+
+
+  favcolor.oninput = function () {
+
+    coolor = this.value;
+
+  };
+
+
+
+  var coolor2 = favcolor2.value;
+
+
+
+  favcolor2.oninput = function () {
+
+    coolor2 = this.value;
+
+  };
+
+
+
   var slider = document.getElementById("myRange");
+
+
+
   numOfDots = slider.value;
+
+
+
   slider.oninput = function () {
+
     numOfDots = this.value;
+
+  };
+
+
+
+  var slider2 = document.getElementById("myRange2");
+
+
+
+  numOfDots2 = slider2.value;
+
+
+
+  slider2.oninput = function () {
+
+    numOfDots2 = this.value;
+
+  };
+
+
+
+  var slider3 = document.getElementById("myRanged");
+
+
+
+  sizeX = slider3.value;
+
+
+
+  slider3.oninput = function () {
+
+    sizeX = this.value;
+
+  };
+
+
+
+  var slider4 = document.getElementById("myRanger");
+
+
+
+  sizeY = slider4.value;
+
+
+
+  slider4.oninput = function () {
+
+    sizeY = this.value;
+
+  };
+
+
+
+  setInterval(coolColor1, 10000);
+
+
+
+  setInterval(coolColor2, 5000);
+
+
+
+  function coolColor1() {
+
+    random = Math.floor(Math.random() * 361);
+
+
+
+    random = "hsl(" + rand + "," + "100%" + "," + "50%" + ")";
+
   }
 
+
+
+  function coolColor2() {
+
+    random2 = Math.floor(Math.random() * 361);
+
+
+
+    random2 = "hsl(" + rand2 + "," + "100%" + "," + "50%" + ")";
+
+  }
+
+
+
   function pause() {
-    clearInterval(myInterval)
+
+    clearInterval(myInterval);
+
   }
-  function changeNum() {
-    numOfDots = 100
-    sizeX = 1
-    sizeY = 1
+
+
+
+  function start() {
+
+    const myIntervals = setInterval(timeLapseStars, 10);
+
   }
-  function sizes() {
-    sizeX = 3
-    sizeY = 1
-    numOfDots = 100000
+
+
+
+  const myInterval = setInterval(timeLapseStars, 10);
+
+
+
+  function resize() {
+
+    clearX = 0;
+
   }
-  function sizes2() {
-    sizeY = 4
-    sizeX = 1
-    numOfDots = 100000
+
+
+
+  function reclear() {
+
+    clearx = 100000;
+
   }
-  const myInterval = setInterval(stars, 100);
+
 
 
   function stars() {
-    ctx.clearRect(0, 0, 10000, 10000)
-    x = []
-    y = []
+
+    ctx.clearRect(0, 0, clearX, clearY);
+
+
+
+    x = [];
+
+
+
+    y = [];
+
+
+
     for (let i = 0; i <= numOfDots; i++) {
+
       rand = Math.floor(Math.random() * 1000);
+
+
+
       x.push(rand);
+
+
+
       randy = Math.floor(Math.random() * 1000);
+
+
+
       y.push(randy);
-      ctx.fillStyle = "white";
-      ctx.fillRect(x[i], y[i], sizeX, sizeY)
+
+
+
+      ctx.fillStyle = random;
+
+
+
+      ctx.fillRect(x[i], y[i], sizeX, sizeY);
 
     }
-    x2 = []
-    y2 = []
-    for (let i = 0; i <= numOfDots; i++) {
+
+
+
+    x2 = [];
+
+
+
+    y2 = [];
+
+
+
+    for (let i = 0; i <= numOfDots2; i++) {
+
       rand2 = Math.floor(Math.random() * 1000);
+
+
+
       x2.push(rand2);
+
+
+
       randy2 = Math.floor(Math.random() * 1000);
+
+
+
       y2.push(randy2);
-      ctx.fillStyle = "gray";
-      ctx.fillRect(x2[i], y2[i], sizeX, sizeY)
+
+
+
+      ctx.fillStyle = random2;
+
+
+
+      ctx.fillRect(x2[i], y2[i], sizeX, sizeY);
 
     }
+
   }
 
-  document.getElementById("colorme").innerHTML = slider.value
-  console.log("numOfDots")
+  function timeLapseStars() {
+
+    /* ctx.clearRect(0, 0, clearX, clearY); */
+
+
+
+    count = count + 1;
+
+
+
+    var radiusOfCircleStarsInscribe = 500;
+
+
+
+    var centerOfCircleX = 0;
+
+
+
+    var centerOfCircleY = 0;
+
+
+
+    var offsetX =
+
+      Math.cos(count / 500) * radiusOfCircleStarsInscribe + centerOfCircleX;
+
+
+
+    var offsetY =
+
+      Math.sin(count / 500) * radiusOfCircleStarsInscribe + centerOfCircleX;
+
+
+
+    if (createOnlyOnceToggle) {
+
+      for (let i = 0; i <= 1000; i++) {
+
+        rand = Math.floor(Math.random() * 3000);
+
+
+
+        x.push(rand);
+
+
+
+        randy = Math.floor(Math.random() * 3000);
+
+
+
+        y.push(randy);
+
+
+
+        ctx.fillStyle = "white";
+
+
+
+        ctx.fillRect(x[i], y[i], 1, 1);
+
+      }
+
+
+
+      createOnlyOnceToggle = false;
+
+    } else {
+
+      for (let i = 0; i < x.length; i++) {
+
+        ctx.fillStyle = random;
+
+
+
+        ctx.fillRect(x[i] + offsetX, y[i] + offsetY, 1, 1);
+
+      }
+
+    }
+
+
+
+    x2 = [];
+
+
+
+    y2 = [];
+
+  }
+
+
+
+  console.log("numOfDots");
+
+
+
   document.getElementById("changer").addEventListener("click", pause);
-  document.getElementById("static").addEventListener("click", sizes);
-  document.getElementById("rain").addEventListener("click", sizes2);
-  document.getElementById("ammount").addEventListener("click", changeNum);
 
 
 
+  document.getElementById("starter").addEventListener("click", start);
 
+
+
+  document.getElementById("test").addEventListener("click", resize);
+
+
+
+  document.getElementById("test2").addEventListener("click", reclear);
+
+
+
+  function starsSinWave() {
+
+    ctx.clearRect(0, 0, clearX, clearY);
+
+
+
+    x = [];
+
+
+
+    y = [];
+
+
+
+    var howQuicklyItChanges = 100; //bigger number is slower
+
+
+
+    count = count + 1;
+
+
+
+    var randomModifier =
+
+      (Math.sin(count / howQuicklyItChanges) * numOfDots) / 2 + numOfDots / 2;
+
+
+
+    for (let i = 0; i <= randomModifier; i++) {
+
+      rand = Math.floor(Math.random() * 1000);
+
+
+
+      x.push(rand);
+
+
+
+      randy = Math.floor(Math.random() * 1000);
+
+
+
+      y.push(randy);
+
+
+
+      ctx.fillStyle = random;
+
+
+
+      ctx.fillRect(x[i], y[i], 4, 4);
+
+    }
+
+
+
+    x2 = [];
+
+
+
+    y2 = [];
+
+
+
+    /* for (let i = 0; i <= numOfDots2; i++) {
+
+       
+
+        rand2 = Math.floor(Math.random() * 1000);
+
+       
+
+        x2.push(rand2);
+
+       
+
+        randy2 = Math.floor(Math.random() * 1000);
+
+       
+
+        y2.push(randy2);
+
+       
+
+        ctx.fillStyle = random2;
+
+       
+
+        ctx.fillRect(x2[i], y2[i], sizeX, sizeY)
+
+       
+
+       
+
+       
+
+        } */
+
+  }
 
 </script>

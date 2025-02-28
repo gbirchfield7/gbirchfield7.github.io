@@ -79,11 +79,12 @@
 			function update() {
 				moveBoxTo(0); // Moves the box to the x-position 300
 				posX = posX + speed;
-				if(posX >= boardWidth)
+				if(posX >= boardWidth){
 				speed = speed * -1;
-				if (posX <= 0)
+				}
+				if (posX <= 0){
 				speed = 3 * points + 10;
-				
+				}
 			};
 
 			/* 
